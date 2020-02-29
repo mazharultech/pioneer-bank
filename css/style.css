@@ -39,7 +39,7 @@ body {
     -o-border-radius: 10px;
 }
 
-h5,
-h1 {
+.status h5,
+.status h1 {
     color: #ffffff;
 }

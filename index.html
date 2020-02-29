@@ -27,7 +27,7 @@
                 <div class="col-md-4">
                     <div class="deposit status">
                         <h5>Deposit</h5>
-                        <h1>$00</h1>
+                        <h1>$<span id="amount">00</span></h1>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -48,9 +48,9 @@
                 <div class="col-md-6">
                     <div class="submit-area">
                         <h2>Deposit</h2>
-                        <input type="text" class="form-control" placeholder="$ amount you want to deposit">
+                        <input id="inDeposit" type="text" class="form-control" placeholder="$ amount you want to deposit">
                         <br>
-                        <button class="btn btn-success">Deposit</button>
+                        <button id="btnDeposit" class="btn btn-success">Deposit</button>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -67,6 +67,7 @@
 
 
     <script>
+        // loginBtn display starts
         const loginBtn = document.getElementById("login");
         loginBtn.addEventListener("click", function() {
             const loginArea = document.getElementById("login-area");
@@ -74,6 +75,17 @@
             const transaction = document.getElementById("transaction-area");
             transaction.style.display = "block";
         });
+        // deposit starts
+        const btnDeposit = document.getElementById("btnDeposit");
+        btnDeposit.addEventListener("click", function() {
+            const inDeposit = document.getElementById("inDeposit").value;
+            const depositNumber = parseFloat(inDeposit);
+            const amount = document.getElementById("amount").innerText;
+            const totalAmount = parseFloat(amount);
+            const totalDeposit = totalAmount + depositNumber;
+            document.getElementById("amount").innerText = totalDeposit;
+            document.getElementById("inDeposit").value = "";
+        })
     </script>
 </body>
 
