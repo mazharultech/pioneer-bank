@@ -78,11 +78,17 @@
         // deposit starts
         const btnDeposit = document.getElementById("btnDeposit");
         btnDeposit.addEventListener("click", function() {
-                const depositNumber = getInputNumber("inDeposit")
+                const depositNumber = getInputNumber("inDeposit");
 
-                updateSpanText("amount", depositNumber);
-                updateSpanText("currentBalance", depositNumber);
-                document.getElementById("inDeposit").value = "";
+                if (depositNumber < 0) {
+                    alert("Negative number cannot be accept");
+                } else {
+                    updateSpanText("amount", depositNumber);
+                    updateSpanText("currentBalance", depositNumber);
+                    document.getElementById("inDeposit").value = "";
+                }
+
+
             })
             //withdraw starts
         const withdrawBtn = document.getElementById("withdraw-btn");
